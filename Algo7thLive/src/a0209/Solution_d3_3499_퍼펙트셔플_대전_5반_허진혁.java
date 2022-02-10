@@ -23,7 +23,6 @@ public class Solution_d3_3499_퍼펙트셔플_대전_5반_허진혁 {
 				Lhalf = n / 2 + 1;
 				Rhalf = n / 2;
 			}
-
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 			for (int i = 0; i < Lhalf; i++) {
 				left.add(st.nextToken());
