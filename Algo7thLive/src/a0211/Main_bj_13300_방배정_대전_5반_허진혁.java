@@ -23,12 +23,12 @@ public class Main_bj_13300_방배정_대전_5반_허진혁 {
 			student[s][g - 1]++;
 		}
 
-//		for (int[] is : student) {
-//			for (int i : is) {
-//				System.out.print(i + " ");
-//			}
-//			System.out.println();
-//		}
+		for (int[] is : student) {
+			for (int i : is) {
+				System.out.print(i + " ");
+			}
+			System.out.println();
+		}
 
 		for (int i = 0; i < 2; i++) {
 			for (int j = 0; j < 6; j++) {
