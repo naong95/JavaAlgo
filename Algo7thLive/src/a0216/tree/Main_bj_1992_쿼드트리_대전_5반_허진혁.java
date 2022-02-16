@@ -12,7 +12,7 @@ public class Main_bj_1992_쿼드트리_대전_5반_허진혁 {
 	 * 그 경우에 한 번 더 사분면을 나눈다.
 	 */
 	static int size, movie[][];
-	static StringBuilder sb;
+	static StringBuilder sb = new StringBuilder();
 
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input_bj_1992.txt"));
@@ -26,26 +26,39 @@ public class Main_bj_1992_쿼드트리_대전_5반_허진혁 {
 				movie[i][j] = Integer.parseInt(str[j]);
 			}
 		}
-		System.out.println(N);
-		for (int[] is : movie) {// 담긴 정보 확인
-			System.out.println(Arrays.toString(is));
-		}
+//		for (int[] is : movie) {// 담긴 정보 확인
+//			System.out.println(Arrays.toString(is));
+//		}
 		zip(N, 0, 0);
 
+		System.out.println(sb);
 		br.close();
 	}
 
 	public static void zip(int size, int r, int c) {
-		boolean flag;
+		boolean flag = false;// 한 번 더 탐색 해야 되는지 여부 true면 괄호 열고 찍고 재귀
 
-		for (int i = r; i < r + size; i++) {
-			for (int j = c; j < j + size; j++) {
-				if (movie[r][c] != movie[i][j]) {
-					flag = true;
+		for (int i = r; i < r + size; i++) {// 해당 영역 전체를 돌다가
+			for (int j = c; j < c + size; j++) {
+				if (movie[r][c] != movie[i][j]) {// 좌상(시작)과 다른 원소가 있다면
+					flag = true;// 한 번 더 탐색을 true로 만들고 중단
 					break;
 				}
 			}
 		}
+		if (!flag) {
+			sb.append(movie[r][c]);
+			return;
+		}
+		int nSize = size / 2;
+		sb.append("(");
+		zip(nSize, r, c);// 시작
+		zip(nSize, r, c + nSize);// 우
+		zip(nSize, r + nSize, c);// 하
+		zip(nSize, r + nSize, c + nSize);// 우하
+
+		sb.append(")");
 
 	}
+
 }
