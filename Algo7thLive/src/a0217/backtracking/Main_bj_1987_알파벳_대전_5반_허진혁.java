@@ -32,13 +32,14 @@ public class Main_bj_1987_알파벳_대전_5반_허진혁 {
 				alphabet[i][j] = alpha.charAt(0) - 'A';// 'A'를 빼서 정수형으로
 			}
 		}
+		res = 0;
 		next(0, 0, 0);
 		System.out.println(res);
 
 		br.close();
 	}
 
-	static void next(int i, int j, int cnt) {// 말 전진
+	static void next(int cnt, int i, int j) {// 말 전진
 		if (v[alphabet[i][j]]) {// 방문한 알파벳이라면
 			res = Math.max(res, cnt);// 현재 값과 최댓값 비교 후
 			return;// 리턴

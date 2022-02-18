@@ -3,7 +3,7 @@ package a0216.tree;
 import java.io.*;
 import java.util.*;
 
-public class Solution_5644_무선충전_대전_5반_허진혁 {
+public class Solution_d9_5644_무선충전_대전_5반_허진혁 {
 	/**
 	 * 두 사용자의 배터리 충전량의 총합의 최댓값을 구해야 한다.
 	 * 
