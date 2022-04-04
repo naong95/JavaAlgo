@@ -16,8 +16,23 @@ public class Main_bj_15903_카드합체놀이_대전_5반_허진혁 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input_bj_15903.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		int N = Integer.parseInt(st.nextToken());// 카드의 개수
+		int M = Integer.parseInt(st.nextToken());// 합체 횟수
 		
+		st = new StringTokenizer(br.readLine(), " ");
+		long card[] = new long[N];
+		for(int i = 0; i < N; i++) card[i] = Integer.parseInt(st.nextToken());
 		
+		for(int i = 0; i < M; i++) {
+			Arrays.sort(card);
+			long nCard = card[0] + card[1];
+			card[0] = nCard;
+			card[1] = nCard;
+		}
+		long sum = 0;
+		for(int i = 0; i < N; i++) sum += card[i];
+		System.out.println(sum);
 		br.close();
 	}
 }
