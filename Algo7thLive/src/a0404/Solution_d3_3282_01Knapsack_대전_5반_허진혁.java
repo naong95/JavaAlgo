@@ -17,7 +17,7 @@ public class Solution_d3_3282_01Knapsack_대전_5반_허진혁 {
 			int[] weights = new int[N+1];
 			int[] profits = new int[N+1];
 			
-			int[][] results = new int[N+1][N+1];
+			int[][] results = new int[N+1][W+1];
 			
 			for (int i = 1; i <= N; i++) {
 				st = new StringTokenizer(br.readLine(), " ");
@@ -37,7 +37,7 @@ public class Solution_d3_3282_01Knapsack_대전_5반_허진혁 {
 					}
 				}
 			}
-			System.out.println(results[N][W]);
+			System.out.println("#" + tc + " " + results[N][W]);
 		}
 		br.close();
 	}

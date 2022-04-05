@@ -1,4 +1,4 @@
-package study;
+package a0404;
 
 import java.io.*;
 import java.util.*;
