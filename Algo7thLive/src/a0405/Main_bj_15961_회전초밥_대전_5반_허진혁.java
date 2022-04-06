@@ -31,36 +31,50 @@ public class Main_bj_15961_회전초밥_대전_5반_허진혁 {
 		int k = Integer.parseInt(st.nextToken());// 연속해서 먹는 접시의 수
 		int c = Integer.parseInt(st.nextToken());// 쿠폰 번호
 		
-		int[] sushi = new int[N + k - 1];// 벨트 위의 초밥을 담을 배열
-		for(int i = 0; i < N + k - 1; i++) {
-			if(i >= N) sushi[i] = sushi[i - N];
-			else sushi[i] = Integer.parseInt(br.readLine());
-		}
-		HashSet<Integer> check = new HashSet<>();
-		Queue<int[]> kinds = new ArrayDeque<int[]>();
+		int[] sushi = new int[N];// 벨트 위의 초밥을 담을 배열
 		for(int i = 0; i < N; i++) {
-			int coupon = 1;
-			for(int j = i; j < i + k; j++) {
-				if(sushi[j] == c) {
-					check.add(sushi[j]);
-					coupon = 0;
-				}
-				else check.add(sushi[j]);
-			}
-			kinds.offer(new int[] {check.size(), coupon});
-			check.clear();
+			sushi[i] = Integer.parseInt(br.readLine());
+		}
+		int[] cntArr = new int[d + 1];
+		cntArr[c]++;
+		int cnt = 1;
+		for(int i = 0; i < k; i++) {
+			int idx = sushi[i];
+			if(cntArr[idx] == 0) cnt++;
+			cntArr[idx]++;
+		}
+		int max = cnt;
+		for(int i = k; i < N + k; i++) {
+			if(--cntArr[sushi[i - k]] == 0) cnt--;
+			if(cntArr[sushi[i % N]]++ == 0) cnt++;
+			max = Math.max(max, cnt);
 		}
 		
-		int max = 0;
-		while(!kinds.isEmpty()) {
-			int[] cur = kinds.poll();
-			if(cur[1] == 0) {
-				max = Math.max(max, cur[0]);
-			}else if(cur[1] == 1) {
-				max = Math.max(max, cur[0] + 1);
-			}
-		}
 		System.out.println(max);
 		br.close();
+//		HashSet<Integer> check = new HashSet<>();
+//		Queue<int[]> kinds = new ArrayDeque<int[]>();
+//		for(int i = 0; i < N; i++) {
+//			int coupon = 1;
+//			for(int j = i; j < i + k; j++) {
+//				if(sushi[j] == c) {
+//					check.add(sushi[j]);
+//					coupon = 0;
+//				}
+//				else check.add(sushi[j]);
+//			}
+//			kinds.offer(new int[] {check.size(), coupon});
+//			check.clear();
+//		}
+//		
+//		int max = 0;
+//		while(!kinds.isEmpty()) {
+//			int[] cur = kinds.poll();
+//			if(cur[1] == 0) {
+//				max = Math.max(max, cur[0]);
+//			}else if(cur[1] == 1) {
+//				max = Math.max(max, cur[0] + 1);
+//			}
+//		}
 	}
 }

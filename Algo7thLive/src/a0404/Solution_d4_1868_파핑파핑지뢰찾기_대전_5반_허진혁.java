@@ -37,7 +37,6 @@ public class Solution_d4_1868_파핑파핑지뢰찾기_대전_5반_허진혁 {
 					}
 				}
 			}
-			System.out.println(ans);
 			for (int i = 0; i < N; i++) {
 				for (int j = 0; j < N; j++) {
 					if (mine[i][j] > 0 && map[i][j] != '*') {
