@@ -16,50 +16,126 @@ import java.util.*;
 */
 public class Solution_d4_5643_키순서_대전_5반_허진혁 {
 	
-	static int N, M, fromEdge, totoEdge;
+
+
+	static int[][] adjMatrix;
+	static int N;
 	
-	static class Node{
-		Queue<Integer> from;
-		Queue<Integer> to;
-		public Node(Queue<Integer> from, Queue<Integer> to) {
-			super();
-			this.from = from;
-			this.to = to;
-		}
-	}
-	static Node[] nodes;
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input_d4_5643.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine());
-		for (int tc = 1; tc <= T; tc++) {
-			int ans = 0;
-			N = Integer.parseInt(br.readLine());// 학생 수
-			M = Integer.parseInt(br.readLine());// 비교 횟수
-			nodes = new Node[N + 1];
-			for(int i = 1; i <= N; i++) nodes[i] = new Node(new ArrayDeque<>(), new ArrayDeque<>());
-			StringTokenizer st;
+		for(int tc = 1; tc <= T; tc++) {
+			N = Integer.parseInt(br.readLine());
+			int M = Integer.parseInt(br.readLine());
+			
+			adjMatrix = new int[N+1][N+1];
+			
+			StringTokenizer st = null;
+			int a, b;
 			for(int i = 0; i < M; i++) {
 				st = new StringTokenizer(br.readLine(), " ");
-				int from = Integer.parseInt(st.nextToken());
-				int toto = Integer.parseInt(st.nextToken());
-				nodes[from].to.offer(toto);// from은 to 보다 작다
-				nodes[toto].from.offer(from);// to는 from 보다 크다
+				a = Integer.parseInt(st.nextToken());
+				b = Integer.parseInt(st.nextToken());
+				adjMatrix[a][b] = 1;
 			}
-			// 노드 각각의 간선 다 넣어주었으므로 노드 배열 for문으로 돌면서 개수 체크
-			for(int i = 1; i <= N; i++) {
-				fromEdge = 0;
-				fromCount(nodes, i);
-				System.out.println(fromEdge);
+			int answer = 0;
+			
+			for (int i = 0; i < N; i++) {
+				if(gtBFS(i, new boolean[N + 1]) + ltBFS(i, new boolean[N + 1]) == N - 1) ++answer;
 			}
+			
+			System.out.println("#" + tc + " " + answer);
 		}
-		br.close();
 	}
 	
-	private static void fromCount(Node[] nodeArr, int index) {
-		if(nodeArr[index].from.isEmpty()) return;
+	static int gtBFS(int start, boolean[] v) {
 		
-		fromEdge++;
-		fromCount(nodeArr, nodeArr[index].from.poll());
+		int cnt = 0;
+		Queue<Integer> q = new ArrayDeque<>();
+		v[start] = true;
+		q.offer(start);
+
+		while(!q.isEmpty()) {
+			int cur = q.poll();
+			for (int i = 1; i <= N; i++) {// 모든 학생 보면서 자신보다 큰 학생
+				if(adjMatrix[cur][i] != 0 && !v[i]) {
+					++cnt;
+					v[i] = true;
+					q.offer(i);
+				}
+			}
+		}
+		
+		return cnt;
 	}
+	static int ltBFS(int start, boolean[] v) {
+		int cnt = 0;
+		Queue<Integer> q = new ArrayDeque<>();
+		v[start] = true;
+		q.offer(start);
+
+		while(!q.isEmpty()) {
+			int cur = q.poll();
+			for (int i = 1; i <= N; i++) {// 모든 학생 보면서 자신보다 작은 학생
+				if(adjMatrix[i][cur] != 0 && !v[i]) {
+					++cnt;
+					v[i] = true;
+					q.offer(i);
+				}
+			}
+		}
+		
+		return cnt;
+	}
+
+	
+	
+	
+//	static int N, M, fromEdge, totoEdge;
+//	
+//	static class Node{
+//		Queue<Integer> from;
+//		Queue<Integer> to;
+//		public Node(Queue<Integer> from, Queue<Integer> to) {
+//			super();
+//			this.from = from;
+//			this.to = to;
+//		}
+//	}
+//	static Node[] nodes;
+//	public static void main(String[] args) throws Exception {
+//		System.setIn(new FileInputStream("res/input_d4_5643.txt"));
+//		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//		int T = Integer.parseInt(br.readLine());
+//		for (int tc = 1; tc <= T; tc++) {
+//			int ans = 0;
+//			N = Integer.parseInt(br.readLine());// 학생 수
+//			M = Integer.parseInt(br.readLine());// 비교 횟수
+//			nodes = new Node[N + 1];
+//			for(int i = 1; i <= N; i++) nodes[i] = new Node(new ArrayDeque<>(), new ArrayDeque<>());
+//			StringTokenizer st;
+//			for(int i = 0; i < M; i++) {
+//				st = new StringTokenizer(br.readLine(), " ");
+//				int from = Integer.parseInt(st.nextToken());
+//				int toto = Integer.parseInt(st.nextToken());
+//				nodes[from].to.offer(toto);// from은 to 보다 작다
+//				nodes[toto].from.offer(from);// to는 from 보다 크다
+//			}
+//			// 노드 각각의 간선 다 넣어주었으므로 노드 배열 for문으로 돌면서 개수 체크
+//			for(int i = 1; i <= N; i++) {
+//				fromEdge = 0;
+//				fromCount(nodes, i);
+//				System.out.println(fromEdge);
+//			}
+//		}
+//		br.close();
+//	}
+//	
+//	private static void fromCount(Node[] nodeArr, int index) {
+//		if(nodeArr[index].from.isEmpty()) return;
+//		
+//		fromEdge++;
+//		fromCount(nodeArr, nodeArr[index].from.poll());
+//	}
 }
