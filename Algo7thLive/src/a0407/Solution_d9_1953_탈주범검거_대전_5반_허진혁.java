@@ -7,6 +7,8 @@ bfs라는게 이제 조금 보인다
 세로N, 가로M, 맨홀행R, 맨홀열C, 시간L
 
 근데 왜 항상 최솟값보다 클까 ?
+
+--> 자고 일어나서 보니 시간 조건을 안 넣었다
 */
 public class Solution_d9_1953_탈주범검거_대전_5반_허진혁 {
 	
@@ -45,9 +47,11 @@ public class Solution_d9_1953_탈주범검거_대전_5반_허진혁 {
 	private static void bfs() {
 		Queue<int[]> q = new ArrayDeque<>();
 		v[R][C] = true;
+		int time = 0;
 		q.offer(new int[] {R, C});
 		
 		while(!q.isEmpty()) {
+			if(time == L) break;
 			int[] cur = q.poll();
 			int i = cur[0]; int j = cur[1];
 			int pipe = map[i][j];// 현재 파이프의 모양
@@ -76,6 +80,7 @@ public class Solution_d9_1953_탈주범검거_대전_5반_허진혁 {
 							v[ni][nj] = true;
 							q.offer(new int[] {ni, nj});
 							ans++;
+							time++;
 						}
 					}
 					break;
@@ -85,6 +90,7 @@ public class Solution_d9_1953_탈주범검거_대전_5반_허진혁 {
 							v[ni][nj] = true;
 							q.offer(new int[] {ni, nj});
 							ans++;
+							time++;
 						}
 					}
 					break;
@@ -94,6 +100,7 @@ public class Solution_d9_1953_탈주범검거_대전_5반_허진혁 {
 							v[ni][nj] = true;
 							q.offer(new int[] {ni, nj});
 							ans++;
+							time++;
 						}
 					}
 					break;
@@ -103,6 +110,7 @@ public class Solution_d9_1953_탈주범검거_대전_5반_허진혁 {
 							v[ni][nj] = true;
 							q.offer(new int[] {ni, nj});
 							ans++;
+							time++;
 						}
 					}
 					break;
