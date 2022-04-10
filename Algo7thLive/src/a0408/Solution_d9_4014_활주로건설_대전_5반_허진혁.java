@@ -1,45 +1,46 @@
-package a0311;
+package a0408;
 
+import java.io.*;
+import java.util.*;
 /*
 행으로 한 번, 열로 한 번 체크 한다
-대각선 경사로는 없으므로 1차원 배열을 검사하는 식으로
+대각선 활주로는 없으므로 1차원 배열을 검사하는 식으로
 
-경사로의 길이는 경사로가 시작되는 곳의 높이기 때문에
-경사로를 설치했을 때 길이가 넘어가는지
-이미 경사로가 있는지
-경사로가 설치되는 동안 같은 높이인지
+활주로의 높이는 항상 1 --> 높낮이 차가 1인 곳에만 설치 가능
+
+활주로의 길이는 활주로가 시작되는 곳의 높이기 때문에
+활주로를 설치했을 때 길이가 넘어가는지
+
+이미 활주로가 설치되어 있는지
+
+활주로가 설치되는 동안 같은 높이인지
 */
-import java.util.*;
-import java.io.*;
-
-public class Main_bj_14890_경사로_대전_5반_허진혁 {
-
+public class Solution_d9_4014_활주로건설_대전_5반_허진혁 {
+	
 	static int N, L, map[][];
 	public static void main(String[] args) throws Exception {
-		System.setIn(new FileInputStream("res/input_bj_14890.txt"));
-		Scanner sc = new Scanner(System.in);
-		
-		N = sc.nextInt();
-		L = sc.nextInt();
-		
-		map = new int[N + 1][N + 1];
-		for(int i = 1; i <= N; i++) {
-			for(int j = 1; j<= N; j++) {
-				map[i][j] = sc.nextInt();
+		System.setIn(new FileInputStream("res/input_d9_4014.txt"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = null;
+		int T = Integer.parseInt(br.readLine());
+		for(int tc = 1; tc <= T; tc++) {
+			st = new StringTokenizer(br.readLine(), " ");
+			N = Integer.parseInt(st.nextToken());
+			L = Integer.parseInt(st.nextToken());
+			
+			map = new int[N + 1][N + 1];
+			for(int i = 1; i <= N; i++) {
+				st = new StringTokenizer(br.readLine(), " ");
+				for(int j = 1; j <= N; j++) map[i][j] = Integer.parseInt(st.nextToken());
 			}
+			int count = 0;
+			for(int i = 1; i <= N; i++) {
+				if(check(i, 0, 0)) count++; // 열 1줄 체크
+				if(check(0, i, 1)) count++; // 열 1줄 체크
+			}
+			System.out.println("#" + tc + " " + count);
 		}
-//		for (int[] is : map) {
-//			System.out.println(Arrays.toString(is));
-//		}
-		
-		int count = 0;
-		
-		for(int i = 1; i <= N; i++) {
-			if(check(i, 0, 0)) count++;// 열 1줄 체크
-			if(check(0, i, 1)) count++;// 행 1줄 체크
-		}
-		System.out.println(count);
-		sc.close();
+		br.close();
 	}
 	
 	static boolean check(int r, int c, int flag) {
@@ -68,8 +69,6 @@ public class Main_bj_14890_경사로_대전_5반_허진혁 {
 				}
 			}else return false;
 		}
-//		System.out.println(r + " " + c);
-//		System.out.println(Arrays.toString(height));
 		return true;
 	}
 }
