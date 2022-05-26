@@ -15,9 +15,44 @@ import java.io.*;
 첫째 줄에 세 정수 A, B, C가 주어진다.
 */
 public class Main_bj_2251_물통_대전_5반_허진혁 {
+	static int[] bucket;
+	static boolean[][] v;
+	static Set<Integer> answer;
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input_bj_2251.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+		bucket = new int[3];
+		v = new boolean[201][201];
+		for (int i = 0; i < 3; i++) bucket[i] = Integer.parseInt(st.nextToken());
+		answer = new TreeSet<>();
+		dfs(0, 0, bucket[2]);
+		for (int i : answer) System.out.print(i + " ");
 		br.close();
 	}
+	private static void dfs(int first, int second, int third) {
+		if(v[first][second]) return;
+		if(first == 0) {
+			answer.add(third);
+		}
+		v[first][second] = true;
+		
+		// 0 -> 1
+		if(first + second > bucket[1]) dfs((first + second) - bucket[1], bucket[1], third);
+		else						   dfs(0, first + second, third); 
+		// 1 -> 0
+		if(first + second > bucket[0]) dfs(bucket[0], first + second - bucket[0], third);
+		else						   dfs(first + second, 0, third); 
+		// 2 -> 0
+		if(first + third > bucket[0])  dfs(bucket[0], second, first + third - bucket[0]);
+		else						   dfs(first + third, second, 0); 
+		// 2 -> 1
+		if(second + third > bucket[1]) dfs(first, bucket[1], second + third - bucket[1]);
+		else						   dfs(first, second + third, 0);
+		
+		dfs(first, 0, second + third);
+		dfs(0, second, first + third);
+	}
+	
+	
 }
