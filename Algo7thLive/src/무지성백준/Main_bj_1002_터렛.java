@@ -1,6 +1,8 @@
 package 무지성백준;
+
 import java.util.*;
 import java.io.*;
+
 /*
 입력
 첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 다음과 같이 이루어져 있다.
@@ -15,6 +17,29 @@ public class Main_bj_1002_터렛 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("muji/input_bj_1002.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int result = -1;
+		int N = Integer.parseInt(br.readLine());
+		for (int i = 0; i < N; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			int x1 = Integer.parseInt(st.nextToken());
+			int y1 = Integer.parseInt(st.nextToken());
+			double r1 = Double.parseDouble(st.nextToken());
+			int x2 = Integer.parseInt(st.nextToken());
+			int y2 = Integer.parseInt(st.nextToken());
+			double r2 = Double.parseDouble(st.nextToken());
+
+			int x = x2 - x1;
+			int y = y2 - y1;
+			double r = Math.sqrt(x * x + y * y);// 두 터렛 사이의 거리
+
+			if (r == r1 + r2) result = 1;
+			else if (r > r1 + r2) result = 0;
+			else if (r < r1 + r2) {
+				if(r == 0) result = 0;
+				else result = 2;
+			}
+			System.out.println(result);
+		}
 		br.close();
 	}
 }
