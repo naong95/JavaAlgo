@@ -17,27 +17,33 @@ public class Main_bj_1002_터렛 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("muji/input_bj_1002.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		int result = -1;
-		int N = Integer.parseInt(br.readLine());
-		for (int i = 0; i < N; i++) {
+		int result = -2;
+		int T = Integer.parseInt(br.readLine());
+		for (int i = 1; i <= T; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			int x1 = Integer.parseInt(st.nextToken());
-			int y1 = Integer.parseInt(st.nextToken());
+			double x1 = Double.parseDouble(st.nextToken());
+			double y1 = Double.parseDouble(st.nextToken());
 			double r1 = Double.parseDouble(st.nextToken());
-			int x2 = Integer.parseInt(st.nextToken());
-			int y2 = Integer.parseInt(st.nextToken());
+			double x2 = Double.parseDouble(st.nextToken());
+			double y2 = Double.parseDouble(st.nextToken());
 			double r2 = Double.parseDouble(st.nextToken());
 
-			int x = x2 - x1;
-			int y = y2 - y1;
+			double rd = Math.abs(r1 - r2);// 반지름의 차이 
+			double rp = r1 + r2;// 반지름의 합 
+			double x = x2 - x1;
+			double y = y2 - y1;
 			double r = Math.sqrt(x * x + y * y);// 두 터렛 사이의 거리
 
-			if (r == r1 + r2) result = 1;
-			else if (r > r1 + r2) result = 0;
-			else if (r < r1 + r2) {
-				if(r == 0) result = 0;
-				else result = 2;
+			if(r <= rd) {
+				if(r == rd) result = 1;
+				else result = 0;
 			}
+			if(r >= rp) {
+				if(r == rp) result = 1;
+				else result = 0;
+			}
+			if(r < rp && r != 0) result = 2;
+			
 			System.out.println(result);
 		}
 		br.close();
