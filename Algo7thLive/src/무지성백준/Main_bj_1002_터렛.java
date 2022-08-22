@@ -21,29 +21,23 @@ public class Main_bj_1002_터렛 {
 		int T = Integer.parseInt(br.readLine());
 		for (int i = 1; i <= T; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			double x1 = Double.parseDouble(st.nextToken());
-			double y1 = Double.parseDouble(st.nextToken());
-			double r1 = Double.parseDouble(st.nextToken());
-			double x2 = Double.parseDouble(st.nextToken());
-			double y2 = Double.parseDouble(st.nextToken());
-			double r2 = Double.parseDouble(st.nextToken());
+			int x1 = Integer.parseInt(st.nextToken());
+			int y1 = Integer.parseInt(st.nextToken());
+			int r1 = Integer.parseInt(st.nextToken());
+			int x2 = Integer.parseInt(st.nextToken());
+			int y2 = Integer.parseInt(st.nextToken());
+			int r2 = Integer.parseInt(st.nextToken());
 
-			double rd = Math.abs(r1 - r2);// 반지름의 차이 
-			double rp = r1 + r2;// 반지름의 합 
-			double x = x2 - x1;
-			double y = y2 - y1;
-			double r = Math.sqrt(x * x + y * y);// 두 터렛 사이의 거리
+			int rd = (int) Math.pow(r1 - r2, 2);// 반지름의 차이
+			int rp = (int) Math.pow(r1 + r2, 2);// 반지름의 합
+			int x = x2 - x1;
+			int y = y2 - y1;
+			int r = (int) (Math.pow(x, 2) + Math.pow(y, 2));// 두 터렛 사이의 거리의 제곱 
 
-			if(r <= rd) {
-				if(r == rd) result = 1;
-				else result = 0;
-			}
-			if(r >= rp) {
-				if(r == rp) result = 1;
-				else result = 0;
-			}
-			if(r < rp && r != 0) result = 2;
-			
+			if(x1 == x2 && y1 == y2 && r1 == r2) result = -1;
+			else if(r > rp || r < rd) result = 0;
+			else if(r == rp || r == rd) result = 1;
+			else result = 2;
 			System.out.println(result);
 		}
 		br.close();
