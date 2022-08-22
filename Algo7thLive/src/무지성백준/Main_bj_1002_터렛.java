@@ -39,7 +39,7 @@ public class Main_bj_1002_터렛 {
 			else if(r == rp || r == rd) result = 1;
 			else result = 2;
 			System.out.println(result);
-		}
+		}// 제곱으로 비교하자 
 		br.close();
 	}
 }
