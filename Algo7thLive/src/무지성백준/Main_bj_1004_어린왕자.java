@@ -36,7 +36,7 @@ public class Main_bj_1004_어린왕자 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine());
 		StringTokenizer st;
-		for(int tc = 1; tc <= 1; tc++) {
+		for(int tc = 1; tc <= T; tc++) {
 			st = new StringTokenizer(br.readLine(), " ");
 			int x1 = Integer.parseInt(st.nextToken());
 			int y1 = Integer.parseInt(st.nextToken());
