@@ -41,6 +41,7 @@ public class Main_bj_1004_어린왕자 {
 			
 			int n = Integer.parseInt(br.readLine());
 			star[] sa = new star[n];
+			int ans = 0;
 			for(int i = 0; i < n; i++) {
 				st = new StringTokenizer(br.readLine(), " ");
 				int cx = Integer.parseInt(st.nextToken());
@@ -48,12 +49,17 @@ public class Main_bj_1004_어린왕자 {
 				int r = Integer.parseInt(st.nextToken());
 				sa[i] = new star(cx, cy, r);
 			}
-			
+			for(int i = 0; i < n; i++) {
+				ans += area(x1, y1, sa[i]);
+				ans += area(x2, y2, sa[i]);
+			}
+			System.out.println(ans);
 		}
 		
 		br.close();
 	}
-	static int area(int x1, int y1, int x2, int y2, star s) {// 원 내부(1)인지 외부(0)인지
-		
+	static int area(int x, int y, star s) {// 원 내부(1)인지 외부(0)인지
+		if(Math.pow(s.cx - x, 2) + Math.pow(s.cy - y, 2) < Math.pow(s.r, 2)) return 1;
+		else return 0;
 	}
 }
