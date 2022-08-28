@@ -9,21 +9,17 @@ import java.lang.reflect.Array;
 세 번째 줄부터 n줄에 걸쳐 행성계의 중점과 반지름 (cx, cy, r)이 주어진다.
 
 각 테스트 케이스에 대해 어린 왕자가 거쳐야 할 최소의 행성계 진입/이탈 횟수를 출력한다.
+
+출발점과 도착점을 모든 원에 대입해보고 외부인지 내부인지 판단 내부에 있다면
+출발점 입장에서는 이탈 횟수 + 1, 도착점 입장에서는 진입 횟수 + 1
+이탈과 진입의 횟수를 구분하지 않으므로 원 안 이라면 +1을 해주자.
 */
 public class Main_bj_1004_어린왕자 {
 	static class star {
 		int cx;
 		int cy;
 		int r;
-		public int getCx() {
-			return cx;
-		}
-		public int getCy() {
-			return cy;
-		}
-		public int getR() {
-			return r;
-		}
+		
 		public star(int cx, int cy, int r) {
 			this.cx = cx;
 			this.cy = cy;
@@ -53,11 +49,11 @@ public class Main_bj_1004_어린왕자 {
 				sa[i] = new star(cx, cy, r);
 			}
 			
-			for (star star : sa) {
-				System.out.println(star.cx + " " + star.cy + " " + star.r);
-			}
 		}
 		
 		br.close();
+	}
+	static int area(int x1, int y1, int x2, int y2, star s) {// 원 내부(1)인지 외부(0)인지
+		
 	}
 }
