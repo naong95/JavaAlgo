@@ -1,7 +1,6 @@
 package 무지성백준;
 import java.util.*;
 import java.io.*;
-import java.lang.reflect.Array;
 /*
 입력의 첫 줄에는 테스트 케이스의 개수 T가 주어진다. 
 그 다음 줄부터 각각의 테스트케이스에 대해 첫째 줄에 출발점 (x1, y1)과 도착점 (x2, y2)이 주어진다. 
@@ -12,7 +11,7 @@ import java.lang.reflect.Array;
 
 출발점과 도착점을 모든 원에 대입해보고 외부인지 내부인지 판단 내부에 있다면
 출발점 입장에서는 이탈 횟수 + 1, 도착점 입장에서는 진입 횟수 + 1
-이탈과 진입의 횟수를 구분하지 않으므로 원 안 이라면 +1을 해주자.
+이탈과 진입의 횟수를 구분하지 않으므로 원 내부 라면 +1을 해주자.
 */
 public class Main_bj_1004_어린왕자 {
 	static class star {
@@ -49,9 +48,14 @@ public class Main_bj_1004_어린왕자 {
 				int r = Integer.parseInt(st.nextToken());
 				sa[i] = new star(cx, cy, r);
 			}
+			boolean[] chks = new boolean[n];
+			boolean[] chkd = new boolean[n];
 			for(int i = 0; i < n; i++) {
-				ans += area(x1, y1, sa[i]);
-				ans += area(x2, y2, sa[i]);
+				if(area(x1, y1, sa[i]) == 1) chks[i] = true;
+				if(area(x2, y2, sa[i]) == 1) chkd[i] = true;
+			}
+			for(int i = 0; i < n; i++) {
+				if(chks[i] != chkd[i]) ans++;
 			}
 			System.out.println(ans);
 		}
