@@ -1,6 +1,11 @@
 package 무지성백준;
-import java.util.*;
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
 /*
 이상하게도 가장 가중치가 큰 길을 따라가자 시작 노드랑 끝 노드 가중치는 기본으로 더한다.
 */
@@ -9,7 +14,7 @@ public class Main_bj_1005_ACMCraft {
 		System.setIn(new FileInputStream("muji/input_bj_1005.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int T = Integer.parseInt(br.readLine().trim());
-		for(int tc = 1; tc <= T; tc++) {
+		for (int tc = 1; tc <= T; tc++) {
 			StringTokenizer st;
 			st = new StringTokenizer(br.readLine(), " ");
 			int N = Integer.parseInt(st.nextToken());// node
@@ -17,8 +22,9 @@ public class Main_bj_1005_ACMCraft {
 			int[] weight = new int[N + 1];
 			int[][] edge = new int[N + 1][N + 1];
 			st = new StringTokenizer(br.readLine(), " ");
-			for(int i = 1; i <= N; i++) weight[i] = Integer.parseInt(st.nextToken());
-			for(int i = 0; i < K; i++) {
+			for (int i = 1; i <= N; i++)
+				weight[i] = Integer.parseInt(st.nextToken());
+			for (int i = 0; i < K; i++) {
 				st = new StringTokenizer(br.readLine(), " ");
 				int r = Integer.parseInt(st.nextToken());
 				int c = Integer.parseInt(st.nextToken());
@@ -30,7 +36,7 @@ public class Main_bj_1005_ACMCraft {
 			System.out.println(Arrays.toString(edge[W]));
 			int ans = weight[W];
 			System.out.println(ans);
-			
+
 		}
 		br.close();
 	}
