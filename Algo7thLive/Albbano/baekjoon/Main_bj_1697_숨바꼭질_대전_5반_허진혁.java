@@ -27,6 +27,7 @@ public class Main_bj_1697_숨바꼭질_대전_5반_허진혁 {
 
 	public static int bfs() {
 		Queue<Integer> q = new ArrayDeque<>();
+		
 		v[subi] = 1;
 		q.offer(subi);
 
