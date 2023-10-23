@@ -15,7 +15,7 @@ public class Main_bj_11382_꼬마정민_대전_5반_허진혁 {
 		long a = Long.parseLong(st.nextToken());
 		long b = Long.parseLong(st.nextToken());
 		long c = Long.parseLong(st.nextToken());
-		System.out.print(a + b + c);
-		br.close();
+		System.out.print(a + b + c); 
+		br.close(); 
 	}
 }
