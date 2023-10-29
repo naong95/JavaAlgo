@@ -36,7 +36,7 @@ public class Main_bj_2738_행렬덧셈_대전_5반_허진혁 {
 			sb.append("\n");
 		}
 
-		System.out.println(sb.toString().trim());
+		System.out.println(sb.toString());
 		br.close();
 	}
 }
