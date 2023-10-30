@@ -29,7 +29,6 @@ public class Main_bj_2738_행렬덧셈_대전_5반_허진혁 {
 		}
 		StringBuilder sb = new StringBuilder("");
 		for (int i = 0; i < N; i++) {
-			st = new StringTokenizer(br.readLine(), " ");
 			for (int j = 0; j < M; j++) {
 				sb.append(map[i][j]).append(" ");
 			}
