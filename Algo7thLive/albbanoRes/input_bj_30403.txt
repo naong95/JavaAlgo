@@ -1,7 +1,5 @@
 7
 roygbiv
 
-7
-ROYGBIV
 
 yes
