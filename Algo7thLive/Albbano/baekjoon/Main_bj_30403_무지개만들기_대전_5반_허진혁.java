@@ -12,8 +12,8 @@ public class Main_bj_30403_무지개만들기_대전_5반_허진혁 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int lcheck = Integer.parseInt(br.readLine());
 		char[] arr = br.readLine().toCharArray();
+		
 		Arrays.sort(arr);
-
 		StringBuilder sb = new StringBuilder("");
 		Set<Character> s = new HashSet<>();
 		for (char c : arr) {
