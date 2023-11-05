@@ -40,6 +40,7 @@ public class Main_bj_30403_무지개만들기_대전_5반_허진혁 {
 			System.out.println("NO!");
 		}
 
+		
 		br.close();
 	}
 }
