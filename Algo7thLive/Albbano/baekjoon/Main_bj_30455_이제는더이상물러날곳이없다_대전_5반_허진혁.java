@@ -17,6 +17,7 @@ public class Main_bj_30455_이제는더이상물러날곳이없다_대전_5반_�
 		} else {
 			System.out.println("Goose");
 		}
+		
 		br.close();
 	}
 }
