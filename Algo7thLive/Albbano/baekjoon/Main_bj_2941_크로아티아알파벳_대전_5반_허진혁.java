@@ -12,44 +12,15 @@ public class Main_bj_2941_크로아티아알파벳_대전_5반_허진혁 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		String str = br.readLine();
-		int len = 0;
-		char c, nc;
-		for (int i = 0; i < str.length() - 1; i++) {
-			c = str.charAt(i);
-			nc = str.charAt(i + 1);
-			if (c == '=' || c == '-') {
-				continue;
-			} else if (c == 'z') {
-				if (nc == '=') {
-					len++;
-				}
-			} else if (c == 'd') {
-				if (nc == 'z') {
-					continue;
-				} else {
-					len++;
-				}
-			} else if (c == 'l') {
-				if (nc == 'j') {
-					continue;
-				} else {
-					len++;
-				}
-			} else if (c == 'n') {
-				if (nc == 'j') {
-					continue;
-				} else {
-					len++;
-				}
-			} else {
-				len++;
+		String[] arr = { "c=", "c-", "dz=", "d-", "lj", "nj", "s=", "z=" };
+
+		for (int i = 0; i < arr.length; i++) {
+			if (str.contains(arr[i])) {
+				str = str.replace(arr[i], "*");
 			}
 		}
-		if (str.charAt(str.length() - 1) != '=' && str.charAt(str.length() - 1) != '-') {
-			len++;
-		}
 
-		System.out.println(len);
+		System.out.println(str.length());
 		br.close();
 	}
 }
