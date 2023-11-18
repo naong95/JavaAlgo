@@ -45,7 +45,6 @@ public class Main_bj_2606_바이러스_대전_5반_허진혁 {
 		System.out.println(ans - 1);
 		br.close();
 	}
-
 	public static void dfs(int[] arr) {
 		virus[arr[0]] = 1;
 		visit[arr[0]] = true;
