@@ -12,14 +12,14 @@ public class Main_bj_10989_수정렬하기3_대전_5반_허진혁 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int n = Integer.parseInt(br.readLine());
-		List<Integer> list = new ArrayList<>();
+		int[] arr = new int[n];
 
 		for (int i = 0; i < n; i++) {
-			list.add(Integer.parseInt(br.readLine()));
+			arr[i] = Integer.parseInt(br.readLine());
 		}
-		Collections.sort(list);
+		Arrays.sort(arr);
 		StringBuilder sb = new StringBuilder("");
-		for (int i : list) {
+		for (int i : arr) {
 			sb.append(i).append("\n");
 		}
 		System.out.println(sb.toString());
