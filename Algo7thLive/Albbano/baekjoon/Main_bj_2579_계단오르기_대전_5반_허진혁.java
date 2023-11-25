@@ -26,7 +26,6 @@ public class Main_bj_2579_계단오르기_대전_5반_허진혁 {
 		}
 
 		System.out.println(Math.max(dp[n][0], dp[n][1]));
-
 		br.close();
 	}
 }
