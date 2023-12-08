@@ -36,7 +36,6 @@ public class Main_bj_2798_블랙잭_대전_5반_허진혁 {
 			}
 		}
 		System.out.println(ans);
-		
 		br.close();
 	}
 }
