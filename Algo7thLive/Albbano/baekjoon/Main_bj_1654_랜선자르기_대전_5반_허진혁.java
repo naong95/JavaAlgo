@@ -33,7 +33,6 @@ public class Main_bj_1654_랜선자르기_대전_5반_허진혁 {
 		}
 
 		System.out.println(d);
-
 		br.close();
 	}
 }
