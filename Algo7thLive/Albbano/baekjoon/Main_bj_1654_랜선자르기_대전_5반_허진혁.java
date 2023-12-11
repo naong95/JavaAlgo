@@ -16,24 +16,33 @@ public class Main_bj_1654_랜선자르기_대전_5반_허진혁 {
 		int n = Integer.parseInt(st.nextToken());
 
 		int[] arr = new int[k];
-		int ans = 0;
+		long max = 0;
 		for (int i = 0; i < k; i++) {
 			arr[i] = Integer.parseInt(br.readLine());
+			max = Math.max(max, arr[i]);
 		}
 
-		Arrays.sort(arr);
-		int d = arr[0];
+		max++;
 
-		while (ans < n) {
-			ans = 0;
-			d--;
+		long min = 0;
+		long mid = 0;
+
+		while (min < max) {
+			mid = (max + min) / 2;
+			long count = 0;
+
 			for (int i : arr) {
-				ans += i / d;
+				count += i / mid;
+			}
+
+			if (count < n) {
+				max = mid;
+			} else {
+				min = mid + 1;
 			}
 		}
 
-		System.out.println(d);
-		
+		System.out.println(min - 1);
 		br.close();
 	}
 }
