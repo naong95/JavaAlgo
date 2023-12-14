@@ -33,6 +33,7 @@ public class Main_bj_11047_동전0_대전_5반_허진혁 {
 			ans += cnt;
 		}
 		System.out.println(ans);
+		
 		br.close();
 	}
 }
