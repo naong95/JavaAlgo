@@ -33,6 +33,7 @@ public class Main_bj_5622_다이얼_대전_5반_허진혁 {
 				ans += 10;
 			}
 		}
+		
 		System.out.println(ans);
 		br.close();
 	}
