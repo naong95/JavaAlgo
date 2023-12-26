@@ -80,9 +80,7 @@ public class Main_bj_30980_여중생파댕이와공부를_대전_5반_허진혁 
 			for (int j = 0; j < 8 * m; j++) {
 				sb.append(map[i][j]);
 			}
-			if (i != 3 * n - 1) {
-				sb.append("\n");
-			}
+			sb.append("\n");
 		}
 
 		System.out.println(sb.toString().trim());
