@@ -7,7 +7,6 @@ import java.io.*;
 
 */
 public class Main_bj_30980_여중생파댕이와공부를_대전_5반_허진혁 {
-	
 	public static void study(int i, int j, char[][] map) {
 		int a = map[i][j - 1] - '0';
 		int b = map[i][j + 1] - '0';
