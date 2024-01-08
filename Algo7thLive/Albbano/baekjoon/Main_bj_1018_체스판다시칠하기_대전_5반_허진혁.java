@@ -76,6 +76,7 @@ public class Main_bj_1018_체스판다시칠하기_대전_5반_허진혁 {
 				cnt = Math.min(cnt, check(map));
 			}
 		}
+		
 		System.out.println(cnt);
 		br.close();
 	}
