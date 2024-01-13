@@ -32,6 +32,7 @@ public class Main_bj_1874_스택수열_대전_5반_허진혁 {
 				sb.append("+").append("\n");
 			}
 		}
+		
 		System.out.println(s);
 		System.out.println(sb.toString());
 		br.close();
