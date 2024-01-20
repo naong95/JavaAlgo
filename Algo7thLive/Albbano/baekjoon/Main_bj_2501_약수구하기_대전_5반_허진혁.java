@@ -29,6 +29,7 @@ public class Main_bj_2501_약수구하기_대전_5반_허진혁 {
 		} else {
 			System.out.println(list.get(k - 1));
 		}
+		
 		System.out.println(list);
 		br.close();
 	}
