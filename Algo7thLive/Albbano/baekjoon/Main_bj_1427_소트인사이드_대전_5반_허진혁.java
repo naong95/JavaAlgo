@@ -21,7 +21,6 @@ public class Main_bj_1427_소트인사이드_대전_5반_허진혁 {
 			sb.append(s);
 		}
 		System.out.println(sb.toString());
-
 		br.close();
 	}
 }
