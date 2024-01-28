@@ -42,7 +42,6 @@ public class Main_bj_1764_듣보잡_대전_5반_허진혁 {
 			sb.append("\n").append(ans.get(i));
 		}
 
-		
 		System.out.println(sb.toString());
 		br.close();
 	}
