@@ -28,6 +28,7 @@ public class Main_bj_15650_N과M2_대전_5반_허진혁 {
 	}
 
 	public static void combi(int start, int cnt) {
+		
 		if (cnt == M) {
 			for (int i : arr) {
 				System.out.print(i + " ");
