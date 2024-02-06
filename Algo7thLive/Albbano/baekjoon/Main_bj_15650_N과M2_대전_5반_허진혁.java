@@ -10,36 +10,34 @@ public class Main_bj_15650_N과M2_대전_5반_허진혁 {
 
 	static int[] arr;
 	static int N, M;
+	static StringBuilder sb = new StringBuilder("");
 	
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("albbanoRes/input_bj_15650.txt"));
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-
-		N = Integer.parseInt(st.nextToken());
-		M = Integer.parseInt(st.nextToken());
-
-		arr = new int[M];
-
-		combi(0, 0);
-
-		br.close();
-	}
-
-	public static void combi(int start, int cnt) {
+		Scanner sc = new Scanner(System.in);
 		
-		if (cnt == M) {
-			for (int i : arr) {
-				System.out.print(i + " ");
+		N = sc.nextInt();
+		M = sc.nextInt();
+		arr = new int[M];
+		
+		dfs(0, 1);
+		
+		System.out.println(sb.toString());
+		sc.close();
+	}
+	
+	public static void dfs(int depth, int start) {
+		if(depth == M) {
+			for(int val : arr) {
+				sb.append(val).append(" ");
 			}
-			System.out.println();
+			sb.append("\n");			
 			return;
 		}
-
-		for (int i = start; i < N; i++) {
-			arr[cnt] = i + 1;
-			combi(start + 1, cnt + 1);
+		
+		for(int i = start; i <= N; i++) {
+			arr[depth] = i;
+			dfs(depth + 1, start + 1);
 		}
 	}
 }
