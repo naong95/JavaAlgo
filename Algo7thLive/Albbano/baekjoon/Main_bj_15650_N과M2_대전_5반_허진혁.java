@@ -13,7 +13,6 @@ public class Main_bj_15650_N과M2_대전_5반_허진혁 {
 	static StringBuilder sb = new StringBuilder("");
 	
 	public static void dfs(int start, int depth) {
-		
 		if(depth == M) {
 			for(int val : arr) {
 				sb.append(val).append(" ");
