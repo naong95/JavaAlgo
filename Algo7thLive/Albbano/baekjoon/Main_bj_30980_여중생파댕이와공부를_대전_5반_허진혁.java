@@ -77,6 +77,7 @@ public class Main_bj_30980_여중생파댕이와공부를_대전_5반_허진혁 
 			}
 			sb.append("\n");
 		}
+		
 		System.out.print(sb.toString());
 		br.close();
 	}
