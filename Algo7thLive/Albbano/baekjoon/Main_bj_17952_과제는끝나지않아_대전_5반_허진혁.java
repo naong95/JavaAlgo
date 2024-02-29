@@ -24,6 +24,7 @@ public class Main_bj_17952_과제는끝나지않아_대전_5반_허진혁 {
 				int a = Integer.parseInt(st.nextToken());
 				int t = Integer.parseInt(st.nextToken());
 				s.push(new int[] { a, t - 1 });
+				
 				if (s.peek()[1] == 0) {
 					score += s.pop()[0];
 				}
