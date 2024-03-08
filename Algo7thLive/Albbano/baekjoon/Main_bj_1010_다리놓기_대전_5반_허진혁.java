@@ -7,7 +7,6 @@ import java.io.*;
 
 */
 public class Main_bj_1010_다리놓기_대전_5반_허진혁 {
-
 	static int[][] dp = new int[30][30];
 
 	public static void main(String[] args) throws Exception {
