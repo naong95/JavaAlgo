@@ -25,6 +25,7 @@ public class Main_bj_1010_다리놓기_대전_5반_허진혁 {
 			sb.append(combi(M, N)).append("\n");
 		}
 
+		
 		System.out.println(sb.toString());
 		br.close();
 	}
