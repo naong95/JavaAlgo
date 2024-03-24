@@ -75,6 +75,7 @@ public class solution1 {
 	
 	public static void push(int i, int d) {
 		
+		
 	}
 
 	public static class Knight {
