@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-//왕실의 기사 대결
+
 public class solution1 {
 	public static final int MAX_N = 31;
 	public static final int MAX_L = 41;
