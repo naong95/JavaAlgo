@@ -4,6 +4,7 @@ import java.io.*;
 public class solution2 {
 	public static void main(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);
+		
 		sc.close();
 	}
 }
