@@ -41,7 +41,6 @@ public class Main_bj_2805_나무자르기_대전_5반_허진혁 {
 				high = mid - 1;
 			}
 		}
-
 		System.out.println(result);
 		br.close();
 	}
