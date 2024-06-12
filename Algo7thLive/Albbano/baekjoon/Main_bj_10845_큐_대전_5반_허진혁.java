@@ -54,6 +54,7 @@ public class Main_bj_10845_큐_대전_5반_허진혁 {
 			}
 		}
 
+		
 		System.out.println(sb.toString().trim());
 		br.close();
 	}
