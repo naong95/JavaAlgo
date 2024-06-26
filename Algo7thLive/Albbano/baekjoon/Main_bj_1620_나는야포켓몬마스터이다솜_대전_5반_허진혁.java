@@ -16,20 +16,23 @@ public class Main_bj_1620_나는야포켓몬마스터이다솜_대전_5반_허�
 		int n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
 
-		Map<String, Integer> dogam = new HashMap<>();
+		Map<String, Integer> nameToNo = new HashMap<>();
+		Map<Integer, String> noToName = new HashMap<>();
 
+		String s;
 		for (int i = 1; i <= n; i++) {
-			dogam.put(br.readLine(), i);
+			s = br.readLine();
+			nameToNo.put(s, i);
+			noToName.put(i, s);
 		}
 
 		StringBuilder sb = new StringBuilder("");
-		String s;
 		for (int i = 0; i < m; i++) {
 			s = br.readLine();
 			if (isNumeric(s)) {
-				sb.append(getKey(dogam, Integer.parseInt(s))).append("\n");
+				sb.append(noToName.get(Integer.parseInt(s))).append("\n");
 			} else {
-				sb.append(dogam.get(s)).append("\n");
+				sb.append(nameToNo.get(s)).append("\n");
 			}
 		}
 
@@ -39,14 +42,5 @@ public class Main_bj_1620_나는야포켓몬마스터이다솜_대전_5반_허�
 
 	public static boolean isNumeric(String str) {
 		return str.chars().allMatch(Character::isDigit);
-	}
-
-	public static <K, V> K getKey(Map<K, V> map, V value) {
-		for (K key : map.keySet()) {
-			if (value == map.get(key)) {
-				return key;
-			}
-		}
-		return null;
 	}
 }
