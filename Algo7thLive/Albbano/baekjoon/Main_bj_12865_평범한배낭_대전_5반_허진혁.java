@@ -17,23 +17,30 @@ public class Main_bj_12865_평범한배낭_대전_5반_허진혁 {
 		int k = Integer.parseInt(st.nextToken());
 
 		int[] weights = new int[n];
-
-		int[] dp = new int[n + 1]; // dp[i] i개 넣었을때 가치 최댓값
-		dp[0] = 0;
+		int[] values = new int[n];
 
 		for (int i = 0; i < n; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
-			goods[i][0] = Integer.parseInt(st.nextToken());
-			goods[i][1] = Integer.parseInt(st.nextToken());
-			if (goods[i][0] <= k) {
-				dp[1] = Math.max(dp[1], goods[i][1]);
+			weights[i] = Integer.parseInt(st.nextToken());
+			values[i] = Integer.parseInt(st.nextToken());
+		}
+
+		int[][] dp = new int[n + 1][k + 1];
+
+		for (int i = 1; i <= n; i++) {
+			int weight = weights[i - 1];
+			int value = values[i - 1];
+
+			for (int w = 0; w <= k; w++) {
+				if (w >= weight) {
+					dp[i][w] = Math.max(dp[i - 1][w], dp[i - 1][w - weight] + value);
+				} else {
+					dp[i][w] = dp[i - 1][w];
+				}
 			}
 		}
 
-		for (int i = 2; i < n + 1; i++) {
-
-		}
-
+		System.out.println(dp[n][k]);
 		br.close();
 	}
 }
